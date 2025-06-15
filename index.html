@@ -466,21 +466,239 @@
                     </ul>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Live Doubt Sessions</a></li>
-                        <li><a href="#">Feedback</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                &copy; 2023 EduHub - Study Material Platform. All Rights Reserved.
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flip Credit Card</title>
+  <style>
+    body {
+      margin: 0;
+      background: #dfe6e9;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .card-wrapper {
+      width: 360px;
+      height: 220px;
+      perspective: 1500px;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease;
+      cursor: pointer;
+    }
+
+    .card.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      backface-visibility: hidden;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-front {
+      background: linear-gradient(135deg, #880e4f, #b71c1c);
+      color: white;
+      padding: 20px;
+    }
+
+    .chip {
+      width: 50px;
+      height: 35px;
+      background: gold;
+      border-radius: 6px;
+      box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+      position: absolute;
+      top: 60px;
+      left: 20px;
+    }
+
+    .card-number {
+      font-size: 1.3em;
+      letter-spacing: 3px;
+      position: absolute;
+      top: 110px;
+      left: 20px;
+    }
+
+    .valid-thru {
+      font-size: 0.65em;
+      position: absolute;
+      top: 145px;
+      left: 22px;
+      line-height: 1.4;
+    }
+
+    .name {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 0.95em;
+      font-weight: 500;
+    }
+
+    .visa-logo {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+    }
+
+    .big-symbol {
+      position: absolute;
+      top: 40px;
+      left: 120px;
+      font-size: 120px;
+      color: rgba(255, 255, 255, 0.07);
+      font-weight: bold;
+    }
+
+    .label {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 0.7em;
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      opacity: 0.8;
+      letter-spacing: 2px;
+    }
+
+    .type {
+      position: absolute;
+      top: 25px;
+      right: 20px;
+      font-size: 0.7em;
+      opacity: 0.8;
+    }
+
+    .card-back {
+      background: linear-gradient(to bottom right, #2980b9, #3498db);
+      color: #fff;
+      transform: rotateY(180deg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
+    }
+
+    .black-strip {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      height: 40px;
+      background: black;
+    }
+
+    .signature-strip {
+      margin-top: 80px;
+      display: flex;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .signature {
+      flex: 1;
+      height: 35px;
+      background: repeating-linear-gradient(
+        white, white 2px, #ccc 2px, #ccc 3px
+      );
+      border-radius: 4px;
+      padding-left: 10px;
+      font-size: 0.75em;
+      color: #333;
+      display: flex;
+      align-items: center;
+    }
+
+    .cvv-box {
+      background: #fff;
+      color: #000;
+      padding: 5px 10px;
+      margin-left: 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.9em;
+      box-shadow: inset 0 0 2px #999;
+    }
+
+    .back-text {
+      margin-top: auto;
+      text-align: center;
+      font-size: 0.8em;
+      color: #fff;
+      padding-top: 10px;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-wrapper" onclick="toggleFlip()">
+    <div class="card" id="flipCard">
+      
+      <!-- FRONT -->
+      <div class="card-face card-front">
+        <div class="chip"></div>
+        <div class="label">DEBIT</div>
+        <div class="type">INDIVIDUAL</div>
+        <div class="big-symbol">E</div>
+        <div class="card-number" id="cardNumber">0000 0000 0000 0000</div>
+        <div class="valid-thru">
+          3412<br>
+          VALID THRU<br>
+          08/29
         </div>
-    </footer>
+        <div class="name">RAHUL VISHWAKARMA</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" class="visa-logo" alt="Visa">
+      </div>
+
+      <!-- BACK -->
+      <div class="card-face card-back">
+        <div class="black-strip"></div>
+        <div class="signature-strip">
+          <div class="signature">Authorized Signature</div>
+          <div class="cvv-box">123</div>
+        </div>
+        <div class="back-text">
+          This is a custom flip card UI designed for Rahul Vishwakarma.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const card = document.getElementById('flipCard');
+
+    function toggleFlip() {
+      card.classList.toggle('is-flipped');
+    }
+
+    // Generate random 16-digit card number grouped in 4s
+    const numberElement = document.getElementById("cardNumber");
+    const randomDigits = Array.from({length: 16}, () => Math.floor(Math.random() * 10));
+    const formatted = randomDigits.join("").match(/.{1,4}/g).join(" ");
+    numberElement.textContent = formatted;
+  </script>
+
 </body>
 </html>
