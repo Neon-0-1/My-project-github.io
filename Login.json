@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1234567890abcdef",
+    "key": "MYLOGINKEY",
+    "expiresAt": "2025-12-31",
+    "allowOffline": true
+  },
+  {
+    "id": "abcdef1234567890",
+    "key": "TESTKEY",
+    "expiresAt": "2026-01-15",
+    "allowOffline": false
+  }
+]
